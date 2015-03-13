@@ -7,27 +7,58 @@
  */
 public class NameGenerator
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+    // atributos
+    private String nombre;
+    private String primerApellido;
+    private String segundoApellido;
+    private String ciudad;
+    public static final int INICIAL_INDEX=0;//posicion inicial
+    public static final int NUMBER_OF_NAME_CHARS=3;//chars nombre
+    public static final int NUMBER_OF_FIRSTNAME_CHARS=3;//chars primer apellido
+     public static final int NUMBER_MOTHER_CHARS=2;//chars segundo apellido
+     public static final int NUMBER_OF_CITY_CHARS=3;//chars ciudad
     /**
      * Constructor for objects of class NameGenerator
      */
-    public NameGenerator()
+    public NameGenerator(String nombre, String primerApellido,String segundoApellido,String ciudad)
     {
-        // initialise instance variables
-        x = 0;
+        this.nombre=nombre;
+        this.primerApellido=primerApellido;
+        this.segundoApellido=segundoApellido;
+        this.ciudad=ciudad;
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * metodo para obtener el nombre de tu personaje
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * 
+     * @return    nombre de personaje 
      */
-    public int sampleMethod(int y)
+    public void starWarsName()
     {
-        // put your code here
-        return x + y;
+        String name=null;
+        if(nombre!= null && primerApellido!= null)
+        {
+            name= nombre.substring(INICIAL_INDEX,NUMBER_OF_NAME_CHARS)+ 
+            primerApellido.substring(INICIAL_INDEX,NUMBER_OF_FIRSTNAME_CHARS);
+        }
+        System.out.println(name);
+    }
+    
+    
+    /**
+     * metodo para obtener el apellido de tu personaje
+     * 
+     * @return     apellido de tu personaje
+     */
+    public void starWarsLastName()
+    {
+        String lastName=null;
+        if(segundoApellido!= null && ciudad!= null)
+        {
+            lastName= segundoApellido.substring(INICIAL_INDEX,NUMBER_MOTHER_CHARS)+ 
+            ciudad.substring(INICIAL_INDEX, NUMBER_OF_CITY_CHARS);
+        }
+        System.out.println(lastName);
     }
 }
